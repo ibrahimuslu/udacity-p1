@@ -132,7 +132,7 @@ def huffman_encoding(data):
     encoded_data = ''
     for c in data:
         encoded_data = encoded_data + huffmanCode[c]
-    print(huffmanCode)
+    # print(huffmanCode)
     return encoded_data, tree
 
 def huffman_encoder(root, str, huffmanCode):
@@ -168,7 +168,7 @@ def huffman_decoding(data,tree):
 if __name__ == "__main__":
     codes = {}
 
-    a_great_sentence = "I like this example too much and have really fun"
+    a_great_sentence = "abcdefghijklmnopqrstuvyz"
 
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
     print ("The content of the data is: {}\n".format(a_great_sentence))

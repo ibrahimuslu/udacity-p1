@@ -33,3 +33,5 @@ def recurFindFiles (suffix,path,cList):
         
     return cList
 print(find_files('.c','testdir'))
+print(find_files('.h','testdir'))
+print(find_files('..','testdir'))

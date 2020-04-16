@@ -118,3 +118,24 @@ print(linked_list_4)
 print()
 print (union(linked_list_3,linked_list_4))
 print (intersection(linked_list_3,linked_list_4))
+
+# Test case 3
+
+linked_list_6 = LinkedList()
+linked_list_7 = LinkedList()
+
+element_1 = [1,1,1,1,1,1,1,1]
+element_2 = [1,7,8,9,11,21,1]
+
+for i in element_1:
+    linked_list_6.append(i)
+
+for i in element_2:
+    linked_list_7.append(i)
+
+print()
+print(linked_list_6)
+print(linked_list_7)
+print()
+print (union(linked_list_6,linked_list_7))
+print (intersection(linked_list_6,linked_list_7))

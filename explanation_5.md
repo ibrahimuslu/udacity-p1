@@ -1,0 +1,2 @@
+This problem also make me very delightfull because of blockchain was very complex thing for me before and I understand now that it is very simple
+1. Time complexity analysis of Blockchain is O(1) except with the cyrptography algorithm we used in the chain since it is only a special linkedlist
