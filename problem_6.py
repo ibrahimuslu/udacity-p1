@@ -42,20 +42,20 @@ class LinkedList:
         return size
 
 def union(llist_1, llist_2):
-    uniList = LinkedList()
+    uniList = set()
     node = llist_1.head
     while node:
-        uniList.append(node)
+        uniList.add(node)
         node = node.next
 
     node = llist_2.head
     while node:
-        uniList.append(node)
+        uniList.add(node)
         node = node.next
     return uniList
 
 def intersection(llist_1, llist_2):
-    intersectList = LinkedList()
+    intersectList = set()
     newSecond  = LinkedList()
 
     node = llist_1.head
@@ -65,7 +65,7 @@ def intersection(llist_1, llist_2):
         while innode:
             #print(node.value, innode.value, node.value==innode.value)
             if node.value == innode.value: 
-                intersectList.append(node)
+                intersectList.add(node)
                 #print(node.value, innode.value,intersectList)
                 if previous:
                     previous.next = innode.next
@@ -95,8 +95,8 @@ print()
 print(linked_list_1)
 print(linked_list_2)
 print()
-print (union(linked_list_1,linked_list_2))
-print (intersection(linked_list_1,linked_list_2))
+print ('union', union(linked_list_1,linked_list_2))
+print ('intersection', intersection(linked_list_1,linked_list_2))
 
 # Test case 2
 
@@ -116,8 +116,8 @@ print()
 print(linked_list_3)
 print(linked_list_4)
 print()
-print (union(linked_list_3,linked_list_4))
-print (intersection(linked_list_3,linked_list_4))
+print ('union', union(linked_list_3,linked_list_4))
+print ('intersection', intersection(linked_list_3,linked_list_4))
 
 # Test case 3
 
@@ -137,5 +137,5 @@ print()
 print(linked_list_6)
 print(linked_list_7)
 print()
-print (union(linked_list_6,linked_list_7))
-print (intersection(linked_list_6,linked_list_7))
+print ('union', union(linked_list_6,linked_list_7))
+print ('intersection', intersection(linked_list_6,linked_list_7))

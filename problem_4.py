@@ -46,3 +46,24 @@ child.add_group(sub_child)
 parent.add_group(child)
 
 print(is_user_in_group("sub_child_user",parent))
+
+
+parent = Group("parent")
+child = Group("child")
+sub_child = Group("subchild")
+
+sub_sub_child = Group("subsubchild")
+sub2_child = Group("sub2child")
+sub_child_user = "sub_child_user"
+sub_child.add_user(sub_child_user)
+
+sub_sub_child_user = "sub_sub_child_user"
+sub_sub_child.add_user(sub_sub_child_user)
+
+child.add_group(sub_child)
+sub_child.add_group(sub_sub_child)
+child.add_group(sub2_child)
+parent.add_group(child)
+
+print(is_user_in_group("sub_sub_child_user",parent))
+print(is_user_in_group("sub_child_user",sub2_child))

@@ -3,19 +3,18 @@ from datetime import datetime
 
 class Block:
 
-      def __init__(self, timestamp, data, previous_hash):
-            self.timestamp = timestamp
+      def __init__(self,data):
+            self.timestamp = datetime.timestamp(datetime.now())
             self.data = data
-            self.previous_hash = previous_hash
+            self.previous_hash = 0
             self.hash = self.calc_hash(data)
             self.next = None
       def calc_hash(self,data):
             sha = hashlib.sha256()
-            hash_str = str(data).encode('utf-8')
+            hash_str = (str(self.previous_hash)+str(data)+str(self.timestamp)).encode('utf-8')
             sha.update(hash_str)
             return sha.hexdigest()
 class Blockchain:
-
       def __init__(self):
             self.head = None
       def __str__(self):
@@ -31,22 +30,16 @@ class Blockchain:
             while node:
                   size += 1
                   node = node.next
-
             return size
       def append(self, data):
-            now = datetime.now()
-            timestamp = datetime.timestamp(now)
-
             if self.head is None:
-                  self.head = Block(timestamp,data,0)
+                  self.head = Block(data)
                   return
 
-            block = self.head
-            previous_hash = None
-            while block.next:
-                  block = block.next
-
-            block.next = Block(timestamp,data,block.hash)
+            block = Block(data)
+            block.previous_hash = self.head.hash
+            block.next = self.head
+            self.head = block
 
 bc = Blockchain()
 
@@ -55,3 +48,21 @@ bc.append("hi")
 bc.append("hola")
 
 print(bc)
+
+
+bc1 = Blockchain()
+
+bc1.append("wonder")
+bc1.append("land")
+bc1.append("never")
+
+print(bc1)
+
+
+bc2 = Blockchain()
+
+bc2.append("covid")
+bc2.append("hide")
+bc2.append("blood")
+
+print(bc2)

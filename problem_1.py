@@ -174,13 +174,15 @@ class LRU_Cache(object):
         self.cache_memory.put(key,newNode)
         self.num_entries+=1
         # print("num_entries",self.num_entries);
+
+## First test case
 our_cache = LRU_Cache(5)
 
 # print("num_entries",our_cache.num_entries);
-our_cache.set(1, 1);
-our_cache.set(2, 2);
-our_cache.set(3, 3);
-our_cache.set(4, 4);
+our_cache.set(1, 1)
+our_cache.set(2, 2)
+our_cache.set(3, 3)
+our_cache.set(4, 4)
 
 
 print(our_cache.get(1))       # returns 1
@@ -191,3 +193,34 @@ our_cache.set(5, 5)
 our_cache.set(6, 6)
 
 print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+
+## Second test case
+second_cache = LRU_Cache(1000)
+# print("num_entries",our_cache.num_entries);
+for i in range(1000):
+    second_cache.set(i, i)
+
+
+print(second_cache.get(1))       # returns 1
+print(second_cache.get(202) )      # returns 2
+print(second_cache.get(1002) )     # returns -1 because 9 is not present in the cache
+
+second_cache.set(123, 523) 
+second_cache.set(1001, 123)
+
+print(second_cache.get(2))      # returns -1 because the cache reached it's capacity and 2 was the least recently used entry
+
+## Third test case
+third_cache = LRU_Cache(10000)
+# print("num_entries",our_cache.num_entries);
+for i in range(10000):
+    third_cache.set(i, i)
+
+print(third_cache.get(1))       # returns 1
+print(third_cache.get(2022) )      # returns 2
+print(third_cache.get(10002) )     # returns -1 because 9 is not present in the cache
+
+third_cache.set(123, 5233) 
+third_cache.set(10001, 1231)
+
+print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 2 was the least recently used entry

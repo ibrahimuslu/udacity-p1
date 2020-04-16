@@ -28,7 +28,7 @@ def recurFindFiles (suffix,path,cList):
           # print(os.listdir(path+"/"+f))
           recurFindFiles(suffix,(path+"/"+f),cList)
         # print(f,f.endswith(suffix))
-        if (f.endswith(suffix)):
+        if (f.endswith(suffix) and os.path.isfile(path+"/"+f)):
           cList.append(f)
         
     return cList

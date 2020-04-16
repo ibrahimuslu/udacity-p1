@@ -164,12 +164,7 @@ def huffman_decoding(data,tree):
         decoded_data = decoded_data+d
     return decoded_data
 
-
-if __name__ == "__main__":
-    codes = {}
-
-    a_great_sentence = "abcdefghijklmnopqrstuvyz"
-
+def test_case(a_great_sentence):
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
     print ("The content of the data is: {}\n".format(a_great_sentence))
 
@@ -182,3 +177,8 @@ if __name__ == "__main__":
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+
+a_great_sentences = ["The bird is the word", "abcdefghijklmnopqrstuvyz", "Udacity is the number one platform for learning"]
+for a in a_great_sentences:
+    test_case(a)
